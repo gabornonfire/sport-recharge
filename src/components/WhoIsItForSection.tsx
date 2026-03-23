@@ -12,7 +12,7 @@ const WhoIsItForSection = () => {
   return (
     <section className="py-16 md:py-24 bg-foreground">
       <div className="container">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-5xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-4xl mx-auto">
           <div className="space-y-6">
             <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-background">
               Kinek ajánlott?
