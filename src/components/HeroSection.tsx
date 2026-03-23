@@ -42,8 +42,7 @@ const HeroSection = () => {
           
           <div className="relative order-first lg:order-last">
             <div className="relative aspect-[4/5] w-full overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-t from-dark-deepest/80 via-transparent to-transparent z-10" />
-              <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-transparent z-10 hidden lg:block" />
+              <img
               <img
                 src={heroImg}
                 alt="Sportoló a Wentong regenerációs kezelés közben"

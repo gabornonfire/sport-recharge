@@ -12,7 +12,7 @@ const ProblemSection = () => {
     <section className="py-16 md:py-24 bg-foreground">
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-background mb-4">
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-dark mb-4">
             Ismerős ez az érzés?
           </h2>
           <p className="text-background/60 text-lg md:text-xl">
