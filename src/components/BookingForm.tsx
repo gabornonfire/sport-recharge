@@ -5,23 +5,86 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { ArrowRight, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import {
+  bookingFormSchema,
+  type BookingFormValues,
+  getFieldErrors,
+  submitForm,
+} from "@/lib/form-submission";
+import { cn } from "@/lib/utils";
+
+const initialValues: BookingFormValues = {
+  name: "",
+  phone: "",
+  email: "",
+  preferred_time: "",
+  sport: "",
+  note: "",
+  website: "",
+};
 
 const BookingForm = () => {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
+  const [values, setValues] = useState<BookingFormValues>(initialValues);
+  const [errors, setErrors] = useState<Partial<Record<keyof BookingFormValues, string>>>({});
+  const [submitState, setSubmitState] = useState<{ type: "success" | "error"; message: string } | null>(null);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleChange = (field: keyof BookingFormValues, value: string) => {
+    setValues((current) => ({ ...current, [field]: value }));
+
+    if (errors[field]) {
+      setErrors((current) => ({ ...current, [field]: undefined }));
+    }
+
+    if (submitState) {
+      setSubmitState(null);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
-    // Simulate submission
-    setTimeout(() => {
-      setLoading(false);
-      toast({
-        title: "Köszönjük!",
-        description: "Hamarosan felvesszük veled a kapcsolatot az időpont egyeztetéséhez.",
+    const validationResult = bookingFormSchema.safeParse(values);
+
+    if (!validationResult.success) {
+      const fieldErrors = getFieldErrors(bookingFormSchema, values);
+      setErrors(fieldErrors);
+      setSubmitState({
+        type: "error",
+        message: "Kérlek, ellenőrizd a megjelölt mezőket, és javítsd a hibákat.",
       });
-      (e.target as HTMLFormElement).reset();
-    }, 1000);
+      toast({
+        title: "Hiányzó vagy hibás adatok",
+        description: "Nézd át a mezőket, és javítsd a jelzett hibákat.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setErrors({});
+    setSubmitState(null);
+    setLoading(true);
+
+    const result = await submitForm("booking", validationResult.data);
+
+    setLoading(false);
+
+    if (!result.ok) {
+      toast({
+        title: "A beküldés nem sikerült",
+        description: result.message,
+        variant: "destructive",
+      });
+      setSubmitState({ type: "error", message: result.message });
+      return;
+    }
+
+    toast({
+      title: "Időpontkérés elküldve",
+      description: result.message,
+    });
+    setSubmitState({ type: "success", message: result.message });
+    setValues(initialValues);
   };
 
   return (
@@ -46,18 +109,29 @@ const BookingForm = () => {
           </p>
         </div>
         
-        <form onSubmit={handleSubmit} className="space-y-5 p-6 md:p-8 rounded-2xl bg-card border border-border">
+        <form onSubmit={handleSubmit} noValidate className="space-y-5 p-6 md:p-8 rounded-2xl bg-card border border-border">
           <div className="grid sm:grid-cols-2 gap-5">
             <div className="space-y-2">
               <Label htmlFor="booking-name" className="text-foreground">Név *</Label>
               <Input
                 id="booking-name"
                 name="name"
-                required
-                maxLength={100}
+                value={values.name}
+                onChange={(e) => handleChange("name", e.target.value)}
                 placeholder="Teljes neved"
-                className="bg-muted border-border text-foreground placeholder:text-muted-foreground"
+                autoComplete="name"
+                aria-invalid={Boolean(errors.name)}
+                aria-describedby={errors.name ? "booking-name-error" : undefined}
+                className={cn(
+                  "bg-muted border-border text-foreground placeholder:text-muted-foreground",
+                  errors.name && "border-destructive focus-visible:ring-destructive",
+                )}
               />
+              {errors.name && (
+                <p id="booking-name-error" className="text-sm text-destructive">
+                  {errors.name}
+                </p>
+              )}
             </div>
             <div className="space-y-2">
               <Label htmlFor="booking-phone" className="text-foreground">Telefonszám *</Label>
@@ -65,11 +139,23 @@ const BookingForm = () => {
                 id="booking-phone"
                 name="phone"
                 type="tel"
-                required
-                maxLength={20}
+                value={values.phone}
+                onChange={(e) => handleChange("phone", e.target.value)}
                 placeholder="+36 30 123 4567"
-                className="bg-muted border-border text-foreground placeholder:text-muted-foreground"
+                autoComplete="tel"
+                inputMode="tel"
+                aria-invalid={Boolean(errors.phone)}
+                aria-describedby={errors.phone ? "booking-phone-error" : undefined}
+                className={cn(
+                  "bg-muted border-border text-foreground placeholder:text-muted-foreground",
+                  errors.phone && "border-destructive focus-visible:ring-destructive",
+                )}
               />
+              {errors.phone && (
+                <p id="booking-phone-error" className="text-sm text-destructive">
+                  {errors.phone}
+                </p>
+              )}
             </div>
           </div>
           
@@ -79,11 +165,22 @@ const BookingForm = () => {
               id="booking-email"
               name="email"
               type="email"
-              required
-              maxLength={255}
+              value={values.email}
+              onChange={(e) => handleChange("email", e.target.value)}
               placeholder="pelda@email.com"
-              className="bg-muted border-border text-foreground placeholder:text-muted-foreground"
+              autoComplete="email"
+              aria-invalid={Boolean(errors.email)}
+              aria-describedby={errors.email ? "booking-email-error" : undefined}
+              className={cn(
+                "bg-muted border-border text-foreground placeholder:text-muted-foreground",
+                errors.email && "border-destructive focus-visible:ring-destructive",
+              )}
             />
+            {errors.email && (
+              <p id="booking-email-error" className="text-sm text-destructive">
+                {errors.email}
+              </p>
+            )}
           </div>
           
           <div className="grid sm:grid-cols-2 gap-5">
@@ -92,20 +189,36 @@ const BookingForm = () => {
               <Input
                 id="booking-time"
                 name="preferred_time"
-                maxLength={100}
+                value={values.preferred_time}
+                onChange={(e) => handleChange("preferred_time", e.target.value)}
                 placeholder="pl. hétköznap délután"
+                aria-invalid={Boolean(errors.preferred_time)}
+                aria-describedby={errors.preferred_time ? "booking-time-error" : undefined}
                 className="bg-muted border-border text-foreground placeholder:text-muted-foreground"
               />
+              {errors.preferred_time && (
+                <p id="booking-time-error" className="text-sm text-destructive">
+                  {errors.preferred_time}
+                </p>
+              )}
             </div>
             <div className="space-y-2">
               <Label htmlFor="booking-sport" className="text-foreground">Sport típusa (opcionális)</Label>
               <Input
                 id="booking-sport"
                 name="sport"
-                maxLength={100}
+                value={values.sport}
+                onChange={(e) => handleChange("sport", e.target.value)}
                 placeholder="pl. futás, crossfit"
+                aria-invalid={Boolean(errors.sport)}
+                aria-describedby={errors.sport ? "booking-sport-error" : undefined}
                 className="bg-muted border-border text-foreground placeholder:text-muted-foreground"
               />
+              {errors.sport && (
+                <p id="booking-sport-error" className="text-sm text-destructive">
+                  {errors.sport}
+                </p>
+              )}
             </div>
           </div>
           
@@ -114,10 +227,30 @@ const BookingForm = () => {
             <Textarea
               id="booking-note"
               name="note"
-              maxLength={1000}
+              value={values.note}
+              onChange={(e) => handleChange("note", e.target.value)}
               placeholder="Van bármilyen kérdésed vagy megjegyzésed?"
               rows={3}
+              aria-invalid={Boolean(errors.note)}
+              aria-describedby={errors.note ? "booking-note-error" : undefined}
               className="bg-muted border-border text-foreground placeholder:text-muted-foreground"
+            />
+            {errors.note && (
+              <p id="booking-note-error" className="text-sm text-destructive">
+                {errors.note}
+              </p>
+            )}
+          </div>
+
+          <div className="hidden" aria-hidden="true">
+            <Label htmlFor="booking-website">Website</Label>
+            <Input
+              id="booking-website"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              value={values.website}
+              onChange={(e) => handleChange("website", e.target.value)}
             />
           </div>
           
@@ -130,6 +263,19 @@ const BookingForm = () => {
             {loading ? "Küldés..." : "Időpontot foglalok"}
             {!loading && <ArrowRight className="ml-2 h-5 w-5" />}
           </Button>
+
+          {submitState && (
+            <div
+              className={cn(
+                "rounded-xl border px-4 py-3 text-sm leading-relaxed",
+                submitState.type === "success"
+                  ? "border-gold/30 bg-gold/10 text-foreground"
+                  : "border-destructive/40 bg-destructive/10 text-foreground",
+              )}
+            >
+              {submitState.message}
+            </div>
+          )}
           
           <p className="text-muted-foreground text-xs text-center">
             Az adataidat bizalmasan kezeljük, kizárólag az időpont egyeztetéséhez használjuk.

@@ -5,22 +5,84 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { MessageCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import {
+  contactFormSchema,
+  type ContactFormValues,
+  getFieldErrors,
+  submitForm,
+} from "@/lib/form-submission";
+import { cn } from "@/lib/utils";
+
+const initialValues: ContactFormValues = {
+  name: "",
+  phone: "",
+  email: "",
+  message: "",
+  website: "",
+};
 
 const ContactForm = () => {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
+  const [values, setValues] = useState<ContactFormValues>(initialValues);
+  const [errors, setErrors] = useState<Partial<Record<keyof ContactFormValues, string>>>({});
+  const [submitState, setSubmitState] = useState<{ type: "success" | "error"; message: string } | null>(null);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleChange = (field: keyof ContactFormValues, value: string) => {
+    setValues((current) => ({ ...current, [field]: value }));
+
+    if (errors[field]) {
+      setErrors((current) => ({ ...current, [field]: undefined }));
+    }
+
+    if (submitState) {
+      setSubmitState(null);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      toast({
-        title: "Üzenet elküldve!",
-        description: "Kollégánk hamarosan felveszi veled a kapcsolatot.",
+    const validationResult = contactFormSchema.safeParse(values);
+
+    if (!validationResult.success) {
+      const fieldErrors = getFieldErrors(contactFormSchema, values);
+      setErrors(fieldErrors);
+      setSubmitState({
+        type: "error",
+        message: "Kérlek, ellenőrizd a megjelölt mezőket, és egészítsd ki a hiányzó adatokat.",
       });
-      (e.target as HTMLFormElement).reset();
-    }, 1000);
+      toast({
+        title: "Hiányzó vagy hibás adatok",
+        description: "Nézd át a mezőket, és javítsd a jelzett hibákat.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setErrors({});
+    setSubmitState(null);
+    setLoading(true);
+
+    const result = await submitForm("contact", validationResult.data);
+
+    setLoading(false);
+
+    if (!result.ok) {
+      toast({
+        title: "A beküldés nem sikerült",
+        description: result.message,
+        variant: "destructive",
+      });
+      setSubmitState({ type: "error", message: result.message });
+      return;
+    }
+
+    toast({
+      title: "Üzenet elküldve",
+      description: result.message,
+    });
+    setSubmitState({ type: "success", message: result.message });
+    setValues(initialValues);
   };
 
   return (
@@ -35,18 +97,29 @@ const ContactForm = () => {
           </p>
         </div>
         
-        <form onSubmit={handleSubmit} className="space-y-5 p-6 md:p-8 rounded-2xl bg-card border border-border">
+        <form onSubmit={handleSubmit} noValidate className="space-y-5 p-6 md:p-8 rounded-2xl bg-card border border-border">
           <div className="grid sm:grid-cols-2 gap-5">
             <div className="space-y-2">
               <Label htmlFor="contact-name" className="text-foreground">Név *</Label>
               <Input
                 id="contact-name"
                 name="name"
-                required
-                maxLength={100}
+                value={values.name}
+                onChange={(e) => handleChange("name", e.target.value)}
                 placeholder="Teljes neved"
-                className="bg-muted border-border text-foreground placeholder:text-muted-foreground"
+                autoComplete="name"
+                aria-invalid={Boolean(errors.name)}
+                aria-describedby={errors.name ? "contact-name-error" : undefined}
+                className={cn(
+                  "bg-muted border-border text-foreground placeholder:text-muted-foreground",
+                  errors.name && "border-destructive focus-visible:ring-destructive",
+                )}
               />
+              {errors.name && (
+                <p id="contact-name-error" className="text-sm text-destructive">
+                  {errors.name}
+                </p>
+              )}
             </div>
             <div className="space-y-2">
               <Label htmlFor="contact-phone" className="text-foreground">Telefonszám *</Label>
@@ -54,11 +127,23 @@ const ContactForm = () => {
                 id="contact-phone"
                 name="phone"
                 type="tel"
-                required
-                maxLength={20}
+                value={values.phone}
+                onChange={(e) => handleChange("phone", e.target.value)}
                 placeholder="+36 30 123 4567"
-                className="bg-muted border-border text-foreground placeholder:text-muted-foreground"
+                autoComplete="tel"
+                inputMode="tel"
+                aria-invalid={Boolean(errors.phone)}
+                aria-describedby={errors.phone ? "contact-phone-error" : undefined}
+                className={cn(
+                  "bg-muted border-border text-foreground placeholder:text-muted-foreground",
+                  errors.phone && "border-destructive focus-visible:ring-destructive",
+                )}
               />
+              {errors.phone && (
+                <p id="contact-phone-error" className="text-sm text-destructive">
+                  {errors.phone}
+                </p>
+              )}
             </div>
           </div>
           
@@ -68,11 +153,22 @@ const ContactForm = () => {
               id="contact-email"
               name="email"
               type="email"
-              required
-              maxLength={255}
+              value={values.email}
+              onChange={(e) => handleChange("email", e.target.value)}
               placeholder="pelda@email.com"
-              className="bg-muted border-border text-foreground placeholder:text-muted-foreground"
+              autoComplete="email"
+              aria-invalid={Boolean(errors.email)}
+              aria-describedby={errors.email ? "contact-email-error" : undefined}
+              className={cn(
+                "bg-muted border-border text-foreground placeholder:text-muted-foreground",
+                errors.email && "border-destructive focus-visible:ring-destructive",
+              )}
             />
+            {errors.email && (
+              <p id="contact-email-error" className="text-sm text-destructive">
+                {errors.email}
+              </p>
+            )}
           </div>
           
           <div className="space-y-2">
@@ -80,11 +176,33 @@ const ContactForm = () => {
             <Textarea
               id="contact-message"
               name="message"
-              required
-              maxLength={1000}
+              value={values.message}
+              onChange={(e) => handleChange("message", e.target.value)}
               placeholder="Miben segíthetünk?"
               rows={4}
-              className="bg-muted border-border text-foreground placeholder:text-muted-foreground"
+              aria-invalid={Boolean(errors.message)}
+              aria-describedby={errors.message ? "contact-message-error" : undefined}
+              className={cn(
+                "bg-muted border-border text-foreground placeholder:text-muted-foreground",
+                errors.message && "border-destructive focus-visible:ring-destructive",
+              )}
+            />
+            {errors.message && (
+              <p id="contact-message-error" className="text-sm text-destructive">
+                {errors.message}
+              </p>
+            )}
+          </div>
+
+          <div className="hidden" aria-hidden="true">
+            <Label htmlFor="contact-website">Website</Label>
+            <Input
+              id="contact-website"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              value={values.website}
+              onChange={(e) => handleChange("website", e.target.value)}
             />
           </div>
           
@@ -97,6 +215,19 @@ const ContactForm = () => {
             {loading ? "Küldés..." : "Üzenet küldése"}
             {!loading && <MessageCircle className="ml-2 h-5 w-5" />}
           </Button>
+
+          {submitState && (
+            <div
+              className={cn(
+                "rounded-xl border px-4 py-3 text-sm leading-relaxed",
+                submitState.type === "success"
+                  ? "border-gold/30 bg-gold/10 text-foreground"
+                  : "border-destructive/40 bg-destructive/10 text-foreground",
+              )}
+            >
+              {submitState.message}
+            </div>
+          )}
 
           <p className="text-muted-foreground text-xs text-center">
             Itt is válaszolunk, de időpont-egyeztetéshez a foglalási űrlap a legközvetlenebb megoldás.
