@@ -9,7 +9,7 @@ const HeroSection = () => {
       
       <div className="relative z-10 w-full">
         <div className="grid lg:grid-cols-2 items-center">
-          <div className="space-y-6 md:space-y-8 text-center lg:text-left px-6 md:px-12 lg:pl-16 xl:pl-24">
+          <div className="space-y-6 md:space-y-8 text-center lg:text-left px-6 md:px-12 lg:pl-16 xl:pl-24 py-12 md:py-20">
             <div className="inline-block px-4 py-1.5 rounded-full border border-gold/30 bg-gold/10 text-gold-light text-sm font-medium tracking-wide">
               🔥 Első kezelés 50% kedvezménnyel
             </div>
