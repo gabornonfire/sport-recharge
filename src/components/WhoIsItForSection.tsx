@@ -10,7 +10,7 @@ const audiences = [
 
 const WhoIsItForSection = () => {
   return (
-    <section className="py-16 md:py-24 bg-foreground overflow-hidden">
+    <section className="bg-foreground overflow-hidden">
       <div className="grid lg:grid-cols-2 items-center">
         <div className="space-y-6 px-6 md:px-12 lg:pl-16 xl:pl-24 py-8">
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-background">
