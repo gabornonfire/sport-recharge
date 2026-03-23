@@ -9,27 +9,27 @@ const problems = [
 
 const ProblemSection = () => {
   return (
-    <section className="py-16 md:py-24 bg-dark-deepest">
+    <section className="py-16 md:py-24 bg-foreground">
       <div className="container">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-background mb-4">
             Ismerős ez az érzés?
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-background/60 text-lg md:text-xl">
             Ha rendszeresen edzel, tudod: a teljesítmény nem csak az edzésen múlik – hanem azon is, hogyan regenerálódsz utána.
           </p>
         </div>
         
-        <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {problems.map((item, i) => (
             <div
               key={i}
-              className="flex items-start gap-4 p-6 rounded-xl bg-card border border-border hover:border-gold/20 transition-colors"
+              className="flex items-start gap-5 p-7 rounded-xl bg-background/5 border border-background/10 hover:border-gold/30 transition-colors"
             >
-              <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center">
-                <item.icon className="w-6 h-6 text-gold-light" />
+              <div className="flex-shrink-0 w-14 h-14 rounded-lg bg-gold/15 flex items-center justify-center">
+                <item.icon className="w-7 h-7 text-gold" />
               </div>
-              <p className="text-foreground text-base leading-relaxed">{item.text}</p>
+              <p className="text-background text-lg leading-relaxed pt-1">{item.text}</p>
             </div>
           ))}
         </div>

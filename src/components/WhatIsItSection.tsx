@@ -6,7 +6,7 @@ const WhatIsItSection = () => {
       <div className="container">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="relative">
-            <div className="aspect-square rounded-2xl overflow-hidden bg-card border border-border flex items-center justify-center p-8">
+            <div className="aspect-square rounded-2xl overflow-hidden border-2 border-gold/40 bg-card flex items-center justify-center p-8">
               <img
                 src={deviceImg}
                 alt="Wentong regenerációs készülék"

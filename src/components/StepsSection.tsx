@@ -29,11 +29,11 @@ const StepsSection = () => {
         <div className="grid md:grid-cols-3 gap-8">
           {processSteps.map((step, i) => (
             <div key={i} className="text-center">
-              <div className="font-heading text-5xl md:text-6xl font-black text-gold/20 mb-4">
+              <div className="font-heading text-5xl md:text-7xl font-black text-gold mb-4">
                 {step.num}
               </div>
-              <h3 className="font-heading text-xl font-bold text-foreground mb-3">{step.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
+              <h3 className="font-heading text-2xl md:text-2xl font-bold text-foreground mb-3">{step.title}</h3>
+              <p className="text-muted-foreground text-base md:text-lg leading-relaxed">{step.desc}</p>
             </div>
           ))}
         </div>

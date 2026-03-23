@@ -25,10 +25,10 @@ const benefits = [
 
 const BenefitsSection = () => {
   return (
-    <section className="py-16 md:py-24 bg-dark-deepest">
+    <section className="py-16 md:py-24 bg-foreground">
       <div className="container">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-background mb-4">
             Miért érdemes kipróbálni?
           </h2>
         </div>
@@ -37,7 +37,7 @@ const BenefitsSection = () => {
           {benefits.map((b, i) => (
             <div
               key={i}
-              className="group p-6 rounded-xl bg-card border border-border hover:border-gold/30 transition-all duration-300 text-center"
+              className="group p-6 rounded-xl bg-muted border border-border hover:border-gold/30 transition-all duration-300 text-center"
             >
               <div className="w-14 h-14 rounded-xl bg-gold/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-gold/20 transition-colors">
                 <b.icon className="w-7 h-7 text-gold-light" />
