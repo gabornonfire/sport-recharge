@@ -31,7 +31,7 @@ const ContactForm = () => {
             Kérj <span className="text-gold-light">részleteket</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            Írd meg kérdésedet, és kollégánk hamarosan válaszol.
+            Ha előbb kérdeznél, itt könnyen felveheted velünk a kapcsolatot. Ha már kipróbálnád, az időpontfoglalás fenti űrlapja a gyorsabb út.
           </p>
         </div>
         
@@ -97,6 +97,10 @@ const ContactForm = () => {
             {loading ? "Küldés..." : "Üzenet küldése"}
             {!loading && <MessageCircle className="ml-2 h-5 w-5" />}
           </Button>
+
+          <p className="text-muted-foreground text-xs text-center">
+            Itt is válaszolunk, de időpont-egyeztetéshez a foglalási űrlap a legközvetlenebb megoldás.
+          </p>
         </form>
       </div>
     </section>

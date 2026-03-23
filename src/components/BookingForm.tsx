@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const BookingForm = () => {
@@ -32,7 +32,17 @@ const BookingForm = () => {
             Foglalj <span className="text-primary">időpontot</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            Töltsd ki az alábbi űrlapot, és felvesszük veled a kapcsolatot az időpont egyeztetéséhez.
+            Ez a leggyorsabb út, ha ki szeretnéd próbálni a 30 perces, ülve végezhető wellness-recovery kezelést. Töltsd ki az űrlapot, és felvesszük veled a kapcsolatot az időpont egyeztetéséhez.
+          </p>
+        </div>
+
+        <div className="mb-6 rounded-2xl border border-gold/20 bg-card/60 px-5 py-4">
+          <div className="flex items-center justify-center gap-2 text-foreground font-heading font-semibold text-center">
+            <MapPin className="h-4 w-4 text-gold-light flex-shrink-0" />
+            Jó megközelíthetőség, a Blahától 1 percre
+          </div>
+          <p className="text-sm text-muted-foreground text-center mt-1">
+            1073 Budapest, Osvát utca 7.
           </p>
         </div>
         
@@ -123,6 +133,9 @@ const BookingForm = () => {
           
           <p className="text-muted-foreground text-xs text-center">
             Az adataidat bizalmasan kezeljük, kizárólag az időpont egyeztetéséhez használjuk.
+          </p>
+          <p className="text-muted-foreground text-xs text-center">
+            Ha inkább előbb kérdeznél, lent a részletkérő űrlapon is írhatsz nekünk.
           </p>
         </form>
       </div>

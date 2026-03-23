@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight, MapPin, MessageCircle } from "lucide-react";
 
 const FooterCTA = () => {
   return (
@@ -9,8 +9,18 @@ const FooterCTA = () => {
           Készen állsz kipróbálni?
         </h2>
         <p className="text-muted-foreground text-lg">
-          Tapasztald meg a Wentong regenerációs élményt – most az első kezelés fél áron a tiéd.
+          Próbáld ki a Wentong 30 perces, kényelmes wellness-recovery élményét. Az első kezelés most fél áron foglalható.
         </p>
+
+        <div className="inline-flex flex-col gap-2 rounded-2xl border border-gold/20 bg-card/40 px-5 py-4 text-center">
+          <div className="flex items-center justify-center gap-2 text-foreground font-heading font-semibold">
+            <MapPin className="h-4 w-4 text-gold-light" />
+            Jó megközelíthetőség, a Blahától 1 percre
+          </div>
+          <p className="text-sm text-muted-foreground">
+            1073 Budapest, Osvát utca 7.
+          </p>
+        </div>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="#idopontfoglalas">
@@ -20,7 +30,7 @@ const FooterCTA = () => {
             </Button>
           </a>
           <a href="#kapcsolat">
-            <Button size="lg" variant="outline" className="w-full sm:w-auto border-gold/40 text-gold-light hover:bg-gold/10 font-heading font-semibold text-lg px-8 py-6">
+            <Button size="lg" variant="outline" className="w-full sm:w-auto border-gold/40 text-gold-light hover:bg-gold/10 font-heading font-semibold text-base px-7 py-6">
               <MessageCircle className="mr-2 h-5 w-5" />
               Kérek részleteket
             </Button>

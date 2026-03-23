@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight, MapPin, MessageCircle } from "lucide-react";
 import heroImg from "@/assets/wentong-hasznalat-ffi.png";
 
 const HeroSection = () => {
@@ -15,14 +15,24 @@ const HeroSection = () => {
             </div>
             
             <h1 className="font-heading text-5xl sm:text-6xl md:text-6xl lg:text-7xl font-bold leading-[0.95] tracking-tight text-foreground">
-              Regenerálódj
-              <span className="block">gyorsabban.</span>
-              <span className="block">Teljesíts jobban.</span>
+              30 perc ülve.
+              <span className="block">Kényelmes recovery.</span>
+              <span className="block">Sportolóknak.</span>
             </h1>
             
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 leading-relaxed">
-              A Wentong egy 30 perces regenerációs kezelés, ami segít az edzés utáni feltöltődésben. Kényelmes, relaxáló, és sportolóknak tervezték.
+              A Wentong egy 30 perces, ülve végezhető wellness-recovery kezelés sportolóknak. Kényelmes, passzív élmény, amely támogatja a regenerációt, az ellazulást és az edzés utáni feltöltődés érzését.
             </p>
+
+            <div className="inline-flex flex-col gap-2 rounded-2xl border border-gold/20 bg-card/60 px-5 py-4 text-left max-w-xl mx-auto lg:mx-0">
+              <div className="flex items-center gap-2 text-foreground font-heading font-semibold">
+                <MapPin className="h-4 w-4 text-gold-light" />
+                Jó megközelíthetőség, a Blahától 1 percre
+              </div>
+              <p className="text-sm text-muted-foreground">
+                1073 Budapest, Osvát utca 7.
+              </p>
+            </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a href="#idopontfoglalas">
@@ -32,12 +42,16 @@ const HeroSection = () => {
                 </Button>
               </a>
               <a href="#kapcsolat">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto border-gold/40 text-gold-light hover:bg-gold/10 font-heading font-semibold text-lg px-8 py-6">
+                <Button size="lg" variant="outline" className="w-full sm:w-auto border-gold/40 text-gold-light hover:bg-gold/10 font-heading font-semibold text-base px-7 py-6">
                   <MessageCircle className="mr-2 h-5 w-5" />
                   Kérek részleteket
                 </Button>
               </a>
             </div>
+
+            <p className="text-sm text-muted-foreground max-w-xl mx-auto lg:mx-0">
+              Ha készen állsz kipróbálni, az időpontfoglalás a leggyorsabb út. Ha előbb kérdeznél, írj nekünk, és segítünk.
+            </p>
           </div>
           
           <div className="relative order-first lg:order-last">

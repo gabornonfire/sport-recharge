@@ -24,13 +24,13 @@ const WhatIsItSection = () => {
             
             <div className="space-y-4 text-muted-foreground text-base md:text-lg leading-relaxed">
               <p>
-                A Wentong egy <strong className="text-foreground">30 perces regenerációs wellness-kezelés</strong>, amely több technológiai elemet kombinál egy kényelmes recovery élményben.
+                A Wentong egy <strong className="text-foreground">30 perces, ülve végezhető regenerációs wellness-kezelés</strong>, amely több technológiai elemet kombinál egy kényelmes recovery élményben.
               </p>
               <p>
-                A fókusz az <strong className="text-foreground">ellazuláson</strong>, a <strong className="text-foreground">talpi stimuláción</strong>, a <strong className="text-foreground">mikrokeringés támogatásán</strong> és az <strong className="text-foreground">izomrelaxáción</strong>.
+                A fókusz az <strong className="text-foreground">ellazuláson</strong>, a <strong className="text-foreground">talpi stimuláción</strong>, a <strong className="text-foreground">mikrokeringés támogatásán</strong> és az <strong className="text-foreground">izomrelaxáción</strong>, úgy, hogy közben neked csak kényelmesen helyet kell foglalnod.
               </p>
               <p>
-                Nem orvosi kezelés – egy kiegészítő regenerációs megoldás, amely illeszkedik az aktív életmódhoz és segít a feltöltődésben.
+                Nem orvosi kezelés, hanem egy sportos életmódhoz illeszkedő wellness-recovery megoldás, amely támogatja a regenerációt és a feltöltődés érzését.
               </p>
             </div>
             

@@ -19,9 +19,13 @@ const OfferSection = () => {
             </h2>
             
             <p className="text-muted-foreground text-lg max-w-lg mx-auto">
-              Próbáld ki a Wentong kezelést fél áron, és tapasztald meg a regeneráció egy új formáját.
+              Próbáld ki fél áron a 30 perces, kényelmes wellness-recovery élményt, amelyet sportolók regenerációjának támogatására terveztek.
             </p>
-            
+
+            <p className="text-sm text-muted-foreground max-w-xl mx-auto">
+              A foglalás az elsődleges út, mert így tudunk a leggyorsabban időpontot egyeztetni. Ha előbb kérdeznél, a részletkérés opció is ott van.
+            </p>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
               <a href="#idopontfoglalas">
                 <Button size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground font-heading font-bold text-lg px-8 py-6">
@@ -30,7 +34,7 @@ const OfferSection = () => {
                 </Button>
               </a>
               <a href="#kapcsolat">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto border-gold/40 text-gold-light hover:bg-gold/10 font-heading font-semibold text-lg px-8 py-6">
+                <Button size="lg" variant="outline" className="w-full sm:w-auto border-gold/40 text-gold-light hover:bg-gold/10 font-heading font-semibold text-base px-7 py-6">
                   <MessageCircle className="mr-2 h-5 w-5" />
                   Kérek részleteket
                 </Button>
