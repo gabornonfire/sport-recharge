@@ -4,17 +4,17 @@ import heroImg from "@/assets/wentong-hasznalat-ffi.png";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative flex items-center overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-dark-deepest via-background to-background z-0" />
       
-      <div className="relative z-10 pt-20 pb-16 md:pt-28 md:pb-24 w-full">
+      <div className="relative z-10 w-full">
         <div className="grid lg:grid-cols-2 items-center">
-          <div className="space-y-6 md:space-y-8 text-center lg:text-left px-6 md:px-12 lg:pl-16 xl:pl-24">
+          <div className="space-y-6 md:space-y-8 text-center lg:text-left px-6 md:px-12 lg:pl-16 xl:pl-24 py-12 md:py-20">
             <div className="inline-block px-4 py-1.5 rounded-full border border-gold/30 bg-gold/10 text-gold-light text-sm font-medium tracking-wide">
               🔥 Első kezelés 50% kedvezménnyel
             </div>
             
-            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[0.95] tracking-tight text-foreground">
+            <h1 className="font-heading text-5xl sm:text-6xl md:text-6xl lg:text-7xl font-bold leading-[0.95] tracking-tight text-foreground">
               Regenerálódj
               <span className="block">gyorsabban.</span>
               <span className="block">Teljesíts jobban.</span>
