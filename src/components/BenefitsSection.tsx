@@ -1,4 +1,4 @@
-import { Zap, RefreshCw, Activity, HeartPulse } from "lucide-react";
+import { Zap, RefreshCw, HeartPulse, Flower2 } from "lucide-react";
 
 const benefits = [
   {
