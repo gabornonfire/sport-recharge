@@ -13,20 +13,35 @@ const WhoIsItForSection = () => {
     <section className="bg-foreground overflow-hidden relative">
       <div
         aria-hidden="true"
-        className="absolute inset-y-0 left-0 w-[58%] hidden md:block opacity-[0.08] pointer-events-none"
+        className="absolute inset-y-0 left-0 w-[64%] hidden md:block opacity-[0.15] pointer-events-none"
       >
         <svg
-          viewBox="0 0 520 520"
-          className="absolute left-[-8%] top-1/2 w-[32rem] -translate-y-1/2 text-gold"
+          viewBox="0 0 760 760"
+          className="absolute left-[-10%] top-1/2 w-[38rem] -translate-y-1/2 text-gold"
           fill="none"
         >
-          <g stroke="currentColor" strokeWidth="1.2">
-            <path d="M260 74C230 129 206 163 158 203C208 215 240 244 260 286C280 244 312 215 362 203C314 163 290 129 260 74Z" />
-            <path d="M260 118C242 155 227 176 197 202C228 210 248 228 260 255C272 228 292 210 323 202C293 176 278 155 260 118Z" />
-            <path d="M146 262C197 252 229 236 260 205C291 236 323 252 374 262C323 272 291 288 260 319C229 288 197 272 146 262Z" />
-            <path d="M260 447C290 392 314 358 362 318C312 306 280 277 260 235C240 277 208 306 158 318C206 358 230 392 260 447Z" />
-            <circle cx="260" cy="262" r="89" />
-            <circle cx="260" cy="262" r="126" strokeOpacity="0.65" />
+          <g stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+            <path
+              d="M140 592C272 592 380 484 380 352C380 220 488 112 620 112"
+              strokeOpacity="0.34"
+            />
+            <path
+              d="M196 592C297 592 380 509 380 408C380 307 463 224 564 224"
+              strokeOpacity="0.28"
+            />
+            <path
+              d="M252 592C322 592 380 534 380 464C380 394 438 336 508 336"
+              strokeOpacity="0.24"
+            />
+            <rect x="140" y="112" width="480" height="480" rx="42" strokeOpacity="0.12" />
+            <rect x="140" y="112" width="296" height="296" rx="34" strokeOpacity="0.18" />
+            <rect x="140" y="112" width="184" height="184" rx="26" strokeOpacity="0.22" />
+            <rect x="436" y="112" width="184" height="184" rx="26" strokeOpacity="0.1" />
+            <rect x="140" y="408" width="184" height="184" rx="26" strokeOpacity="0.1" />
+            <path d="M324 112V592" strokeOpacity="0.12" />
+            <path d="M436 112V592" strokeOpacity="0.08" />
+            <path d="M140 296H620" strokeOpacity="0.08" />
+            <path d="M140 408H620" strokeOpacity="0.12" />
           </g>
         </svg>
       </div>

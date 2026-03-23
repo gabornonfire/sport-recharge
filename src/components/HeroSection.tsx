@@ -26,12 +26,12 @@ const HeroSection = () => {
               A Wentong egy 30 perces, ülve végezhető wellness-recovery kezelés sportolóknak. Kényelmes, passzív élmény, amely támogatja a regenerációt, az ellazulást és az edzés utáni feltöltődés érzését.
             </p>
 
-            <div className="inline-flex flex-col gap-2 rounded-2xl border border-gold/20 bg-card/60 px-4 sm:px-5 py-3.5 sm:py-4 text-left max-w-xl mx-auto lg:mx-0 shadow-[0_10px_40px_rgba(0,0,0,0.12)]">
+            <div className="inline-flex flex-col gap-2.5 rounded-2xl border border-gold/25 bg-card/65 px-5 sm:px-6 py-4 sm:py-4.5 text-left w-full max-w-[34rem] mx-auto lg:mx-0 shadow-[0_12px_42px_rgba(0,0,0,0.14)]">
               <div className="flex items-start gap-2 text-foreground font-heading font-semibold text-sm sm:text-base">
                 <MapPin className="h-4 w-4 text-gold-light mt-0.5 flex-shrink-0" />
                 Jó megközelíthetőség, a Blahától 1 percre
               </div>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm sm:text-[0.95rem] text-muted-foreground">
                 1073 Budapest, Osvát utca 7.
               </p>
             </div>
