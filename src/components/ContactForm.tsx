@@ -100,18 +100,18 @@ const ContactForm = () => {
 
   return (
     <section id="kapcsolat" className="py-16 md:py-24">
-      <div className="container max-w-2xl">
-        <div className="text-center mb-10">
+      <div className="container max-w-2xl px-5 sm:px-6">
+        <div className="text-center mb-8 md:mb-10">
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Kérj <span className="text-gold-light">részleteket</span>
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
             Ha előbb kérdeznél, itt könnyen felveheted velünk a kapcsolatot. Ha már kipróbálnád, az időpontfoglalás fenti űrlapja a gyorsabb út.
           </p>
         </div>
         
-        <form onSubmit={handleSubmit} noValidate className="space-y-5 p-6 md:p-8 rounded-2xl bg-card border border-border">
-          <div className="grid sm:grid-cols-2 gap-5">
+        <form onSubmit={handleSubmit} noValidate className="space-y-4 sm:space-y-5 p-4 sm:p-5 md:p-8 rounded-2xl bg-card border border-border shadow-[0_16px_48px_rgba(0,0,0,0.08)]">
+          <div className="grid sm:grid-cols-2 gap-4 sm:gap-5">
             <div className="space-y-2">
               <Label htmlFor="contact-name" className="text-foreground">Név *</Label>
               <Input
@@ -225,7 +225,7 @@ const ContactForm = () => {
             disabled={loading}
             data-analytics-event="form_submit_click"
             data-analytics-form="contact"
-            className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-heading font-bold text-lg py-6"
+            className="w-full min-h-14 bg-secondary hover:bg-secondary/90 text-secondary-foreground font-heading font-bold text-base sm:text-lg py-5 sm:py-6"
           >
             {loading ? "Küldés..." : "Üzenet küldése"}
             {!loading && <MessageCircle className="ml-2 h-5 w-5" />}
@@ -234,7 +234,7 @@ const ContactForm = () => {
           {submitState && (
             <div
               className={cn(
-                "rounded-xl border px-4 py-3 text-sm leading-relaxed",
+                "rounded-xl border px-4 py-3 text-sm leading-7",
                 submitState.type === "success"
                   ? "border-gold/30 bg-gold/10 text-foreground"
                   : "border-destructive/40 bg-destructive/10 text-foreground",
@@ -244,7 +244,7 @@ const ContactForm = () => {
             </div>
           )}
 
-          <p className="text-muted-foreground text-xs text-center">
+          <p className="text-muted-foreground text-xs text-center leading-relaxed">
             Itt is válaszolunk, de időpont-egyeztetéshez a foglalási űrlap a legközvetlenebb megoldás.
           </p>
         </form>
