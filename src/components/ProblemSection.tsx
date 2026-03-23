@@ -29,7 +29,7 @@ const ProblemSection = () => {
               <div className="flex-shrink-0 w-14 h-14 rounded-lg bg-gold/15 flex items-center justify-center">
                 <item.icon className="w-7 h-7 text-gold" />
               </div>
-              <p className="text-background text-lg leading-relaxed pt-1">{item.text}</p>
+              <p className="text-gold-light text-lg leading-relaxed pt-1">{item.text}</p>
             </div>
           ))}
         </div>
