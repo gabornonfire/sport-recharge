@@ -22,7 +22,7 @@ const HowItWorksSection = () => {
       <div className="container max-w-3xl">
         <div className="text-center mb-12">
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Hogyan <span className="text-gold-light">működik?</span>
+            Hogyan működik?
           </h2>
           <p className="text-muted-foreground text-lg">
             Egyszerű, kényelmes és hatékony – ez a Wentong lényege.

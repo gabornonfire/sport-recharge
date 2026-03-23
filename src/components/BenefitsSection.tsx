@@ -29,7 +29,7 @@ const BenefitsSection = () => {
       <div className="container">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Miért érdemes <span className="text-primary">kipróbálni?</span>
+            Miért érdemes kipróbálni?
           </h2>
         </div>
         
@@ -39,8 +39,8 @@ const BenefitsSection = () => {
               key={i}
               className="group p-6 rounded-xl bg-card border border-border hover:border-gold/30 transition-all duration-300 text-center"
             >
-              <div className="w-14 h-14 rounded-xl bg-primary/15 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/25 transition-colors">
-                <b.icon className="w-7 h-7 text-primary" />
+              <div className="w-14 h-14 rounded-xl bg-gold/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-gold/20 transition-colors">
+                <b.icon className="w-7 h-7 text-gold-light" />
               </div>
               <h3 className="font-heading text-xl font-bold text-foreground mb-3">{b.title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{b.desc}</p>

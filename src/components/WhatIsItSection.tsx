@@ -3,7 +3,7 @@ const WhatIsItSection = () => {
     <section className="py-16 md:py-24">
       <div className="container">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Device image placeholder */}
+          {/* Device image placeholder - waiting for wentong-upscaled.png */}
           <div className="relative">
             <div className="aspect-square rounded-2xl overflow-hidden bg-card border border-border">
               <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
@@ -13,10 +13,9 @@ const WhatIsItSection = () => {
             <div className="absolute -inset-4 bg-gold/5 rounded-3xl blur-3xl -z-10" />
           </div>
           
-          {/* Text content */}
           <div className="space-y-6">
             <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
-              Mi a <span className="text-gold-light">Wentong</span> kezelés?
+              Mi a Wentong kezelés?
             </h2>
             
             <div className="space-y-4 text-muted-foreground text-base md:text-lg leading-relaxed">
