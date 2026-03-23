@@ -26,7 +26,7 @@ const HeroSection = () => {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a href="#idopontfoglalas">
-                <Button size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground font-heading font-bold text-lg px-8 py-6 animate-pulse-glow">
+                <Button size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground font-heading font-bold text-lg px-8 py-6">
                   Foglalj időpontot
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
@@ -42,8 +42,6 @@ const HeroSection = () => {
           
           <div className="relative order-first lg:order-last">
             <div className="relative aspect-[4/5] w-full overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-t from-dark-deepest/80 via-transparent to-transparent z-10" />
-              <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-transparent z-10 hidden lg:block" />
               <img
                 src={heroImg}
                 alt="Sportoló a Wentong regenerációs kezelés közben"
