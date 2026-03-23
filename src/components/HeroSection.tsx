@@ -40,8 +40,8 @@ const HeroSection = () => {
             </div>
           </div>
           
-          <div className="relative order-first lg:order-last">
-            <div className="relative aspect-[4/5] md:aspect-[3/4] rounded-2xl overflow-hidden">
+          <div className="relative order-first lg:order-last flex items-center justify-center">
+            <div className="relative aspect-[4/5] w-full max-w-sm lg:max-w-md rounded-2xl overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-t from-dark-deepest/80 via-transparent to-transparent z-10" />
               <img
                 src={heroImg}
@@ -50,7 +50,6 @@ const HeroSection = () => {
                 loading="eager"
               />
             </div>
-            <div className="absolute -inset-4 bg-primary/10 rounded-3xl blur-3xl -z-10" />
           </div>
         </div>
       </div>
