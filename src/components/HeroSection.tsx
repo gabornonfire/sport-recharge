@@ -41,7 +41,7 @@ const HeroSection = () => {
           </div>
           
           <div className="relative order-first lg:order-last">
-            <div className="relative aspect-[4/5] w-full overflow-hidden">
+            <div className="relative aspect-[4/5] lg:aspect-auto lg:absolute lg:inset-0 w-full h-full overflow-hidden">
               <img
                 src={heroImg}
                 alt="Sportoló a Wentong regenerációs kezelés közben"
