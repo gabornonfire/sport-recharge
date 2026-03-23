@@ -24,7 +24,7 @@ const ProblemSection = () => {
           {problems.map((item, i) => (
             <div
               key={i}
-              className="flex items-start gap-5 p-7 rounded-xl bg-background/5 border border-background/10 hover:border-gold/30 transition-colors"
+              className="flex items-start gap-5 p-7 rounded-xl bg-[hsl(0_0%_25%)] border border-background/10 hover:border-gold/30 transition-colors"
             >
               <div className="flex-shrink-0 w-14 h-14 rounded-lg bg-gold/15 flex items-center justify-center">
                 <item.icon className="w-7 h-7 text-gold" />
