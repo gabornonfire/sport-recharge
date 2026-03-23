@@ -43,7 +43,6 @@ const HeroSection = () => {
           <div className="relative order-first lg:order-last">
             <div className="relative aspect-[4/5] w-full overflow-hidden">
               <img
-              <img
                 src={heroImg}
                 alt="Sportoló a Wentong regenerációs kezelés közben"
                 className="w-full h-full object-cover"
