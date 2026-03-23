@@ -8,7 +8,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-dark-deepest via-background to-background z-0" />
       
       <div className="relative z-10 w-full">
-        <div className="grid lg:grid-cols-2 items-center">
+        <div className="grid lg:grid-cols-2 items-stretch">
           <div className="space-y-6 md:space-y-8 text-center lg:text-left px-6 md:px-12 lg:pl-16 xl:pl-24 py-12 md:py-20">
             <div className="inline-block px-4 py-1.5 rounded-full border border-gold/30 bg-gold/10 text-gold-light text-sm font-medium tracking-wide">
               🔥 Első kezelés 50% kedvezménnyel
@@ -41,7 +41,7 @@ const HeroSection = () => {
           </div>
           
           <div className="relative order-first lg:order-last">
-            <div className="relative aspect-[4/5] w-full overflow-hidden">
+            <div className="relative aspect-[4/5] lg:aspect-auto lg:absolute lg:inset-0 w-full h-full overflow-hidden">
               <img
                 src={heroImg}
                 alt="Sportoló a Wentong regenerációs kezelés közben"
