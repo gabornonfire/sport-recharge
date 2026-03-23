@@ -22,7 +22,7 @@ const steps = [
 ];
 
 const variantStyles = {
-  dark: "bg-primary border-primary/60 text-primary-foreground",
+  dark: "bg-[#b31a20] border-[#b31a20]/60 text-primary-foreground",
   light: "bg-red-light border-red-light/60 text-primary-foreground",
 };
 
