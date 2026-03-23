@@ -1,4 +1,4 @@
-import { Zap, RefreshCw, Activity, HeartPulse } from "lucide-react";
+import { Zap, RefreshCw, HeartPulse, Flower2 } from "lucide-react";
 
 const benefits = [
   {
@@ -12,12 +12,12 @@ const benefits = [
     desc: "Támogatja a természetes feltöltődési folyamatot egy kellemes recovery élménnyel.",
   },
   {
-    icon: Activity,
+    icon: HeartPulse,
     title: "Mikrokeringés támogatása",
     desc: "A kezelés melegítő hatása támogatja a mikrokeringést a lábakban.",
   },
   {
-    icon: HeartPulse,
+    icon: Flower2,
     title: "Ellazulás és feltöltődés",
     desc: "30 perc tiszta relaxáció – tested és fejed is hálás lesz érte.",
   },
