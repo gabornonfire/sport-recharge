@@ -1,15 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MessageCircle } from "lucide-react";
+import heroImg from "@/assets/wentong-hasznalat-ffi.png";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-dark-deepest via-background to-background z-0" />
       
       <div className="container relative z-10 pt-20 pb-16 md:pt-28 md:pb-24">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Text content */}
           <div className="space-y-6 md:space-y-8 text-center lg:text-left">
             <div className="inline-block px-4 py-1.5 rounded-full border border-gold/30 bg-gold/10 text-gold-light text-sm font-medium tracking-wide">
               🔥 Első kezelés 50% kedvezménnyel
@@ -17,8 +16,8 @@ const HeroSection = () => {
             
             <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[0.95] tracking-tight text-foreground">
               Regenerálódj
-              <span className="block text-primary"> gyorsabban.</span>
-              <span className="block text-gold-light">Teljesíts jobban.</span>
+              <span className="block">gyorsabban.</span>
+              <span className="block">Teljesíts jobban.</span>
             </h1>
             
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 leading-relaxed">
@@ -41,16 +40,16 @@ const HeroSection = () => {
             </div>
           </div>
           
-          {/* Hero image placeholder */}
           <div className="relative order-first lg:order-last">
-            <div className="relative aspect-[4/5] md:aspect-[3/4] rounded-2xl overflow-hidden bg-muted border border-border">
-              {/* Placeholder for Wentong-használat-ffi.png */}
+            <div className="relative aspect-[4/5] md:aspect-[3/4] rounded-2xl overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-t from-dark-deepest/80 via-transparent to-transparent z-10" />
-              <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
-                <p className="text-sm opacity-60">Wentong-használat-ffi.png</p>
-              </div>
+              <img
+                src={heroImg}
+                alt="Sportoló a Wentong regenerációs kezelés közben"
+                className="w-full h-full object-cover"
+                loading="eager"
+              />
             </div>
-            {/* Decorative glow */}
             <div className="absolute -inset-4 bg-primary/10 rounded-3xl blur-3xl -z-10" />
           </div>
         </div>

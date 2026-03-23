@@ -5,18 +5,17 @@ const OfferSection = () => {
   return (
     <section className="py-16 md:py-24 bg-dark-deepest">
       <div className="container max-w-3xl text-center">
-        <div className="p-8 md:p-12 rounded-2xl bg-gradient-to-br from-card via-card to-primary/5 border border-primary/20 relative overflow-hidden">
-          {/* Decorative */}
-          <div className="absolute top-0 right-0 w-40 h-40 bg-primary/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-40 h-40 bg-gold/10 rounded-full blur-3xl" />
+        <div className="p-8 md:p-12 rounded-2xl bg-gradient-to-br from-card via-card to-gold/5 border border-gold/20 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-40 h-40 bg-gold/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-40 h-40 bg-gold/5 rounded-full blur-3xl" />
           
           <div className="relative z-10 space-y-6">
-            <div className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary font-medium text-sm">
+            <div className="inline-block px-4 py-1.5 rounded-full border border-gold/30 bg-gold/10 text-gold-light font-medium text-sm">
               Limitált ajánlat
             </div>
             
             <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
-              Első kezelés <span className="text-primary">50% kedvezménnyel</span>
+              Első kezelés 50% kedvezménnyel
             </h2>
             
             <p className="text-muted-foreground text-lg max-w-lg mx-auto">

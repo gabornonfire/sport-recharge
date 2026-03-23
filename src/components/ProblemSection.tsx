@@ -24,10 +24,10 @@ const ProblemSection = () => {
           {problems.map((item, i) => (
             <div
               key={i}
-              className="flex items-start gap-4 p-6 rounded-xl bg-card border border-border hover:border-primary/30 transition-colors"
+              className="flex items-start gap-4 p-6 rounded-xl bg-card border border-border hover:border-gold/20 transition-colors"
             >
-              <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/15 flex items-center justify-center">
-                <item.icon className="w-6 h-6 text-primary" />
+              <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center">
+                <item.icon className="w-6 h-6 text-gold-light" />
               </div>
               <p className="text-foreground text-base leading-relaxed">{item.text}</p>
             </div>

@@ -22,14 +22,14 @@ const StepsSection = () => {
       <div className="container max-w-4xl">
         <div className="text-center mb-12">
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Hogyan <span className="text-gold-light">zajlik?</span>
+            Hogyan zajlik?
           </h2>
         </div>
         
         <div className="grid md:grid-cols-3 gap-8">
           {processSteps.map((step, i) => (
             <div key={i} className="text-center">
-              <div className="font-heading text-5xl md:text-6xl font-black text-primary/20 mb-4">
+              <div className="font-heading text-5xl md:text-6xl font-black text-gold/20 mb-4">
                 {step.num}
               </div>
               <h3 className="font-heading text-xl font-bold text-foreground mb-3">{step.title}</h3>
