@@ -26,7 +26,7 @@ const HeroSection = () => {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a href="#idopontfoglalas">
-                <Button size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground font-heading font-bold text-lg px-8 py-6 animate-pulse-glow">
+                <Button size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground font-heading font-bold text-lg px-8 py-6">
                   Foglalj időpontot
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
