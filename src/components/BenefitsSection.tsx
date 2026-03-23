@@ -12,7 +12,7 @@ const benefits = [
     desc: "Támogatja a természetes feltöltődési folyamatot egy kellemes recovery élménnyel.",
   },
   {
-    icon: Activity,
+    icon: HeartPulse,
     title: "Mikrokeringés támogatása",
     desc: "A kezelés melegítő hatása támogatja a mikrokeringést a lábakban.",
   },
