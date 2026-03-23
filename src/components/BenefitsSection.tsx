@@ -17,7 +17,7 @@ const benefits = [
     desc: "A kezelés melegítő hatása támogatja a mikrokeringést a lábakban.",
   },
   {
-    icon: Sparkles,
+    icon: Flower2,
     title: "Ellazulás és feltöltődés",
     desc: "30 perc tiszta relaxáció – tested és fejed is hálás lesz érte.",
   },
