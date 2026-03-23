@@ -1,6 +1,4 @@
-import { Zap, RefreshCw, Activity } from "lucide-react";
-import { Icon } from "lucide-react";
-import { lotus } from "@lucide/lab";
+import { Zap, RefreshCw, Activity, Flower2 } from "lucide-react";
 
 const benefits = [
   {
