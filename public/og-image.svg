@@ -1,0 +1,44 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Sport Recharge OG Preview</title>
+  <desc id="desc">Wentong regeneracios kezeles sportoloknak, 30 perces wellness-recovery elmeny.</desc>
+  <defs>
+    <linearGradient id="bg" x1="120" y1="80" x2="1080" y2="550" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#130D0D"/>
+      <stop offset="1" stop-color="#231313"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="261" y1="129" x2="978" y2="519" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C89B4C"/>
+      <stop offset="1" stop-color="#A61C22"/>
+    </linearGradient>
+    <filter id="blur" x="738" y="67" width="322" height="322" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="40"/>
+    </filter>
+    <filter id="blur2" x="100" y="320" width="300" height="300" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="50"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" rx="32" fill="url(#bg)"/>
+  <rect x="48" y="48" width="1104" height="534" rx="28" stroke="#C89B4C" stroke-opacity="0.28" stroke-width="2"/>
+  <g opacity="0.65" filter="url(#blur)">
+    <circle cx="899" cy="228" r="81" fill="#C89B4C"/>
+  </g>
+  <g opacity="0.5" filter="url(#blur2)">
+    <circle cx="250" cy="470" r="50" fill="#A61C22"/>
+  </g>
+  <rect x="76" y="86" width="280" height="42" rx="21" fill="#C89B4C" fill-opacity="0.12" stroke="#C89B4C" stroke-opacity="0.28"/>
+  <text x="102" y="113" fill="#F0C977" font-family="Arial, sans-serif" font-size="22" font-weight="700">SPORT RECHARGE</text>
+  <text x="76" y="220" fill="#F7F1E8" font-family="Arial, sans-serif" font-size="68" font-weight="800">Wentong</text>
+  <text x="76" y="300" fill="#F7F1E8" font-family="Arial, sans-serif" font-size="60" font-weight="800">regeneracios kezeles</text>
+  <text x="76" y="380" fill="#F7F1E8" font-family="Arial, sans-serif" font-size="60" font-weight="800">sportoloknak</text>
+  <text x="76" y="450" fill="#D8D0C8" font-family="Arial, sans-serif" font-size="28" font-weight="400">30 perces wellness-recovery elmeny Budapest belvarosaban</text>
+  <g>
+    <rect x="76" y="492" width="472" height="56" rx="28" fill="url(#accent)"/>
+    <text x="108" y="528" fill="#FFF7F0" font-family="Arial, sans-serif" font-size="28" font-weight="700">Elso kezeles 50% kedvezmennyel</text>
+  </g>
+  <g opacity="0.95">
+    <rect x="825" y="406" width="287" height="112" rx="24" fill="#FFFFFF" fill-opacity="0.06" stroke="#C89B4C" stroke-opacity="0.2"/>
+    <text x="861" y="452" fill="#F7F1E8" font-family="Arial, sans-serif" font-size="24" font-weight="700">Blahatol 1 percre</text>
+    <text x="861" y="490" fill="#D8D0C8" font-family="Arial, sans-serif" font-size="22" font-weight="400">1073 Budapest,</text>
+    <text x="861" y="520" fill="#D8D0C8" font-family="Arial, sans-serif" font-size="22" font-weight="400">Osvat utca 7.</text>
+  </g>
+</svg>
