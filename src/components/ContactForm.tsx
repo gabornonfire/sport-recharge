@@ -12,6 +12,7 @@ import {
   submitForm,
 } from "@/lib/form-submission";
 import { cn } from "@/lib/utils";
+import { trackEvent } from "@/lib/analytics";
 
 const initialValues: ContactFormValues = {
   name: "",
@@ -46,10 +47,16 @@ const ContactForm = () => {
 
     if (!validationResult.success) {
       const fieldErrors = getFieldErrors(contactFormSchema, values);
+      const invalidFields = Object.keys(fieldErrors).filter((field) => field !== "website");
       setErrors(fieldErrors);
       setSubmitState({
         type: "error",
         message: "Kérlek, ellenőrizd a megjelölt mezőket, és egészítsd ki a hiányzó adatokat.",
+      });
+      trackEvent("form_validation_error", {
+        form_name: "contact",
+        invalid_fields: invalidFields.join(","),
+        invalid_field_count: invalidFields.length,
       });
       toast({
         title: "Hiányzó vagy hibás adatok",
@@ -68,6 +75,9 @@ const ContactForm = () => {
     setLoading(false);
 
     if (!result.ok) {
+      trackEvent("form_submit_error", {
+        form_name: "contact",
+      });
       toast({
         title: "A beküldés nem sikerült",
         description: result.message,
@@ -77,6 +87,9 @@ const ContactForm = () => {
       return;
     }
 
+    trackEvent("form_submit_success", {
+      form_name: "contact",
+    });
     toast({
       title: "Üzenet elküldve",
       description: result.message,
@@ -210,6 +223,8 @@ const ContactForm = () => {
             type="submit"
             size="lg"
             disabled={loading}
+            data-analytics-event="form_submit_click"
+            data-analytics-form="contact"
             className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-heading font-bold text-lg py-6"
           >
             {loading ? "Küldés..." : "Üzenet küldése"}

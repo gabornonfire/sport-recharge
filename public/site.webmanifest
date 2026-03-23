@@ -1,0 +1,14 @@
+{
+  "name": "Sport Recharge",
+  "short_name": "Sport Recharge",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "256x256",
+      "type": "image/x-icon"
+    }
+  ],
+  "theme_color": "#140f0f",
+  "background_color": "#140f0f",
+  "display": "standalone"
+}

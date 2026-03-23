@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MapPin, MessageCircle } from "lucide-react";
+import { trackCtaClick } from "@/lib/analytics";
 
 const FooterCTA = () => {
   return (
@@ -24,13 +25,42 @@ const FooterCTA = () => {
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="#idopontfoglalas">
-            <Button size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground font-heading font-bold text-lg px-8 py-6">
+            <Button
+              size="lg"
+              data-analytics-event="cta_click"
+              data-analytics-location="footer_cta"
+              data-analytics-name="foglalj_idopontot"
+              onClick={() =>
+                trackCtaClick({
+                  cta_name: "foglalj_idopontot",
+                  cta_location: "footer_cta",
+                  target: "#idopontfoglalas",
+                  cta_type: "primary",
+                })
+              }
+              className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground font-heading font-bold text-lg px-8 py-6"
+            >
               Foglalj időpontot
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </a>
           <a href="#kapcsolat">
-            <Button size="lg" variant="outline" className="w-full sm:w-auto border-gold/40 text-gold-light hover:bg-gold/10 font-heading font-semibold text-base px-7 py-6">
+            <Button
+              size="lg"
+              variant="outline"
+              data-analytics-event="cta_click"
+              data-analytics-location="footer_cta"
+              data-analytics-name="kerek_reszleteket"
+              onClick={() =>
+                trackCtaClick({
+                  cta_name: "kerek_reszleteket",
+                  cta_location: "footer_cta",
+                  target: "#kapcsolat",
+                  cta_type: "secondary",
+                })
+              }
+              className="w-full sm:w-auto border-gold/40 text-gold-light hover:bg-gold/10 font-heading font-semibold text-base px-7 py-6"
+            >
               <MessageCircle className="mr-2 h-5 w-5" />
               Kérek részleteket
             </Button>

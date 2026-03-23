@@ -12,6 +12,7 @@ import {
   submitForm,
 } from "@/lib/form-submission";
 import { cn } from "@/lib/utils";
+import { trackEvent } from "@/lib/analytics";
 
 const initialValues: BookingFormValues = {
   name: "",
@@ -48,10 +49,16 @@ const BookingForm = () => {
 
     if (!validationResult.success) {
       const fieldErrors = getFieldErrors(bookingFormSchema, values);
+      const invalidFields = Object.keys(fieldErrors).filter((field) => field !== "website");
       setErrors(fieldErrors);
       setSubmitState({
         type: "error",
         message: "Kérlek, ellenőrizd a megjelölt mezőket, és javítsd a hibákat.",
+      });
+      trackEvent("form_validation_error", {
+        form_name: "booking",
+        invalid_fields: invalidFields.join(","),
+        invalid_field_count: invalidFields.length,
       });
       toast({
         title: "Hiányzó vagy hibás adatok",
@@ -70,6 +77,9 @@ const BookingForm = () => {
     setLoading(false);
 
     if (!result.ok) {
+      trackEvent("form_submit_error", {
+        form_name: "booking",
+      });
       toast({
         title: "A beküldés nem sikerült",
         description: result.message,
@@ -79,6 +89,9 @@ const BookingForm = () => {
       return;
     }
 
+    trackEvent("form_submit_success", {
+      form_name: "booking",
+    });
     toast({
       title: "Időpontkérés elküldve",
       description: result.message,
@@ -258,6 +271,8 @@ const BookingForm = () => {
             type="submit"
             size="lg"
             disabled={loading}
+            data-analytics-event="form_submit_click"
+            data-analytics-form="booking"
             className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-heading font-bold text-lg py-6"
           >
             {loading ? "Küldés..." : "Időpontot foglalok"}
