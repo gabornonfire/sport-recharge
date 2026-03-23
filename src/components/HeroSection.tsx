@@ -14,7 +14,7 @@ const HeroSection = () => {
               🔥 Első kezelés 50% kedvezménnyel
             </div>
             
-            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[0.95] tracking-tight text-foreground">
+            <h1 className="font-heading text-5xl sm:text-6xl md:text-6xl lg:text-7xl font-bold leading-[0.95] tracking-tight text-foreground">
               Regenerálódj
               <span className="block">gyorsabban.</span>
               <span className="block">Teljesíts jobban.</span>
